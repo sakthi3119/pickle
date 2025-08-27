@@ -117,6 +117,17 @@ export const stringUtils = {
   },
 };
 
+// Image helpers
+export const buildImageUrlFromTitle = (
+  title: string,
+  width: number = 800,
+  height: number = 800
+): string => {
+  const query = encodeURIComponent(`${title}, food, closeup`);
+  // Source Unsplash provides quick, license-friendly placeholders
+  return `https://source.unsplash.com/featured/${width}x${height}/?${query}`;
+};
+
 // Date helpers
 export const dateUtils = {
   format: (date: Date, options: Intl.DateTimeFormatOptions = {}): string => {

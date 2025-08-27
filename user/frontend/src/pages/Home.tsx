@@ -1,4 +1,5 @@
 import React from 'react';
+import { buildImageUrlFromTitle } from '../utils';
 import { Link } from 'react-router-dom';
 import Button from '../components/atomic/Button';
 import ProductGrid from '../components/product/ProductGrid';
@@ -12,7 +13,7 @@ const Home: React.FC = () => {
       id: 1,
       name: 'Classic Dill Pickles',
       price: 12.99,
-      image: 'https://images.unsplash.com/photo-1597715467880-95ef3e39a566?auto=format&fit=crop&w=800&q=60',
+      image: buildImageUrlFromTitle('Classic Dill Pickles'),
       tag: 'Best Seller',
       description: 'Traditional dill pickles with garlic and herbs',
     },
@@ -20,7 +21,7 @@ const Home: React.FC = () => {
       id: 2,
       name: 'Spicy Jalapeño Pickles',
       price: 14.99,
-      image: 'https://images.unsplash.com/photo-1593967858208-67dfa0df6eb1?auto=format&fit=crop&w=800&q=60',
+      image: buildImageUrlFromTitle('Spicy Jalapeño Pickles'),
       tag: 'New',
       description: 'Hot and zesty pickles with fresh jalapeños',
     },
@@ -28,7 +29,7 @@ const Home: React.FC = () => {
       id: 3,
       name: 'Sweet Bread & Butter',
       price: 13.99,
-      image: 'https://images.unsplash.com/photo-1585923382061-3c2430f2b8a2?auto=format&fit=crop&w=800&q=60',
+      image: buildImageUrlFromTitle('Sweet Bread & Butter'),
       description: 'Sweet and tangy sliced pickles',
     }
   ];
@@ -111,7 +112,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-cream-100">
+      <section className="py-14 lg:py-16 bg-cream-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -139,7 +140,7 @@ const Home: React.FC = () => {
                 </Button>
               </Link>
             </div>
-            <div className="relative aspect-square">
+            <div className="relative aspect-[4/3] lg:aspect-square">
               <img
                 src="https://images.unsplash.com/photo-1597715467880-95ef3e39a566?auto=format&fit=crop&w=800&q=70"
                 alt="Pickle Making Process"
