@@ -13,7 +13,7 @@ const LoginPage = () => {
 
 	const navigate = useNavigate();
 
-	const handleChange = (e) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setFormData(prev => ({
 			...prev,
@@ -21,7 +21,7 @@ const LoginPage = () => {
 		}));
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setLoading(true);
 		setError('');
@@ -61,8 +61,9 @@ const LoginPage = () => {
 			localStorage.setItem('token', data.token);
 			localStorage.setItem('user', JSON.stringify(data.user));
 			navigate('/admin/dashboard');
-		} catch (err) {
-			setError(err.message || 'Login failed. Please try again.');
+		} catch (err: unknown) {
+			const message = err instanceof Error ? err.message : 'Login failed. Please try again.';
+			setError(message);
 		} finally {
 			setLoading(false);
 		}
