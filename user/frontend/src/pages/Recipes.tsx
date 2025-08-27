@@ -17,13 +17,13 @@ interface Recipe {
 const Recipes: React.FC = () => {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
 
-  const fallback = 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=60';
+  const fallback = '/images/products/classicdillpickle.jpg';
   const recipes: Recipe[] = [
     {
       id: 1,
       title: 'Pickle-Brined Fried Chicken',
       description: 'Crispy fried chicken with a tangy pickle brine that keeps it juicy and flavorful.',
-      image: 'https://images.unsplash.com/photo-1604908177078-6788bba9b8b1?auto=format&fit=crop&w=800&q=60',
+      image: '/images/products/garlicdill.jpg',
       cookTime: '45 minutes',
       difficulty: 'Medium',
       pickleUsed: 'Classic Dill Pickles',
@@ -49,7 +49,7 @@ const Recipes: React.FC = () => {
       id: 2,
       title: 'Pickle Potato Salad',
       description: 'A refreshing potato salad with chopped pickles for extra crunch and flavor.',
-      image: 'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=800&q=60',
+      image: '/images/products/breadandbutter.jpg',
       cookTime: '30 minutes',
       difficulty: 'Easy',
       pickleUsed: 'Sweet Bread & Butter Pickles',
@@ -75,7 +75,7 @@ const Recipes: React.FC = () => {
       id: 3,
       title: 'Pickle Bloody Mary',
       description: 'A classic Bloody Mary with pickle juice for an extra tangy kick.',
-      image: 'https://images.unsplash.com/photo-1541976076758-347942db1971?auto=format&fit=crop&w=800&q=60',
+      image: '/images/products/lemon-pickle-OyHya49s.jpg',
       cookTime: '5 minutes',
       difficulty: 'Easy',
       pickleUsed: 'Spicy Jalapeño Pickles',
@@ -101,7 +101,7 @@ const Recipes: React.FC = () => {
       id: 4,
       title: 'Pickle Pizza',
       description: 'A unique pizza topped with pickles, creating a perfect balance of flavors.',
-      image: 'https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=800&q=60',
+      image: '/images/products/chili-pickle-DCeVNVBi.jpg',
       cookTime: '25 minutes',
       difficulty: 'Medium',
       pickleUsed: 'Garlic Dill Spears',
@@ -128,7 +128,7 @@ const Recipes: React.FC = () => {
       id: 5,
       title: 'Pickle Dip',
       description: 'A creamy dip perfect for parties, featuring chopped pickles and herbs.',
-      image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=60',
+      image: '/images/products/Quick-Pickled-Onions-scaled.jpg',
       cookTime: '10 minutes',
       difficulty: 'Easy',
       pickleUsed: 'Classic Dill Pickles',
@@ -153,7 +153,7 @@ const Recipes: React.FC = () => {
       id: 6,
       title: 'Pickle Soup',
       description: 'A hearty soup with pickles that adds a unique tangy flavor.',
-      image: 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=800&q=60',
+      image: '/images/products/mango-pickle-CifRucgB.jpg',
       cookTime: '40 minutes',
       difficulty: 'Medium',
       pickleUsed: 'Mixed Pickle Jar',

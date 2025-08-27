@@ -9,13 +9,13 @@ const Shop: React.FC = () => {
     spiceLevel: [] as string[],
   });
 
-  // Mock product data
+  // Product data
   const products: Product[] = [
     {
       id: 1,
       name: 'Classic Dill Pickles',
       price: 12.99,
-      image: 'https://images.unsplash.com/photo-1603049405392-74c0b5e8b8b8?w=400&h=400&fit=crop',
+      image: '/images/products/classicdillpickle.jpg',
       tag: 'Best Seller',
       description: 'Traditional dill pickles with garlic and herbs',
     },
@@ -23,7 +23,7 @@ const Shop: React.FC = () => {
       id: 2,
       name: 'Spicy Jalapeño Pickles',
       price: 14.99,
-      image: 'https://images.unsplash.com/photo-1603049405392-74c0b5e8b8b8?w=400&h=400&fit=crop',
+      image: '/images/products/chili-pickle-DCeVNVBi.jpg',
       tag: 'New',
       description: 'Hot and zesty pickles with fresh jalapeños',
     },
@@ -31,21 +31,21 @@ const Shop: React.FC = () => {
       id: 3,
       name: 'Sweet Bread & Butter',
       price: 13.99,
-      image: 'https://images.unsplash.com/photo-1603049405392-74c0b5e8b8b8?w=400&h=400&fit=crop',
+      image: '/images/products/breadandbutter.jpg',
       description: 'Sweet and tangy sliced pickles',
     },
     {
       id: 4,
       name: 'Garlic Dill Spears',
       price: 15.99,
-      image: 'https://images.unsplash.com/photo-1603049405392-74c0b5e8b8b8?w=400&h=400&fit=crop',
+      image: '/images/products/garlicdill.jpg',
       description: 'Crisp spears with extra garlic',
     },
     {
       id: 5,
       name: 'Pickled Onions',
       price: 11.99,
-      image: 'https://images.unsplash.com/photo-1603049405392-74c0b5e8b8b8?w=400&h=400&fit=crop',
+      image: '/images/products/Quick-Pickled-Onions-scaled.jpg',
       tag: 'Limited',
       description: 'Tangy red onions perfect for sandwiches',
     }
