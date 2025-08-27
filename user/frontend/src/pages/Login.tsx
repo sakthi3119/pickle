@@ -16,7 +16,7 @@ const Login: React.FC = () => {
     try {
       if (loginAsAdmin) {
         // Redirect to admin app with mock token and user info (no second login)
-        const adminUrl = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_ADMIN_APP_URL) || 'http://localhost:3001';
+        const adminUrl = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_ADMIN_APP_URL) || 'https://pickle-jg5v.vercel.app';
         const adminToken = 'dev-token-' + Date.now();
         const adminName = email.split('@')[0] || 'Admin';
         const params = new URLSearchParams({ token: adminToken, email, name: adminName, role: 'admin' });
