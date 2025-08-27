@@ -1,5 +1,4 @@
 import React from 'react';
-import { buildImageUrlFromTitle } from '../utils';
 import { Link } from 'react-router-dom';
 import Button from '../components/atomic/Button';
 import ProductGrid from '../components/product/ProductGrid';
@@ -13,7 +12,7 @@ const Home: React.FC = () => {
       id: 1,
       name: 'Classic Dill Pickles',
       price: 12.99,
-      image: buildImageUrlFromTitle('Classic Dill Pickles'),
+      image: '/images/products/classicdillpickle.jpg',
       tag: 'Best Seller',
       description: 'Traditional dill pickles with garlic and herbs',
     },
@@ -21,7 +20,7 @@ const Home: React.FC = () => {
       id: 2,
       name: 'Spicy Jalapeño Pickles',
       price: 14.99,
-      image: buildImageUrlFromTitle('Spicy Jalapeño Pickles'),
+      image: '/images/products/chili-pickle-DCeVNVBi.jpg',
       tag: 'New',
       description: 'Hot and zesty pickles with fresh jalapeños',
     },
@@ -29,7 +28,7 @@ const Home: React.FC = () => {
       id: 3,
       name: 'Sweet Bread & Butter',
       price: 13.99,
-      image: buildImageUrlFromTitle('Sweet Bread & Butter'),
+      image: '/images/products/breadandbutter.jpg',
       description: 'Sweet and tangy sliced pickles',
     }
   ];
@@ -40,11 +39,11 @@ const Home: React.FC = () => {
       <section className="relative h-[80vh] min-h-[600px] bg-pickle-900">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1593967858208-67dfa0df6eb1?auto=format&fit=crop&w=2000&q=70"
+            src="/images/products/garlicdill.jpg"
             alt="Artisanal Pickles"
             className="w-full h-full object-cover opacity-50"
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1505761764207-75c6a3161fb2?auto=format&fit=crop&w=2000&q=70';
+              (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg';
             }}
           />
         </div>
@@ -142,11 +141,11 @@ const Home: React.FC = () => {
             </div>
             <div className="relative aspect-[4/3] lg:aspect-square">
               <img
-                src="https://images.unsplash.com/photo-1597715467880-95ef3e39a566?auto=format&fit=crop&w=800&q=70"
+                src="/images/products/mango-pickle-CifRucgB.jpg"
                 alt="Pickle Making Process"
                 className="rounded-lg shadow-xl"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1505761764207-75c6a3161fb2?auto=format&fit=crop&w=800&q=70';
+                  (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg';
                 }}
               />
             </div>
@@ -167,11 +166,11 @@ const Home: React.FC = () => {
           </div>
           <LifestyleGallery
             images={[
-              'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=60',
-              'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-              'https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=800&q=60',
-              'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=800&q=60',
-              'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=60'
+              '/images/products/garlicdill.jpg',
+              '/images/products/lemon-pickle-OyHya49s.jpg',
+              '/images/products/Quick-Pickled-Onions-scaled.jpg',
+              '/images/products/mango-pickle-CifRucgB.jpg',
+              '/images/products/chili-pickle-DCeVNVBi.jpg'
             ]}
           />
         </div>
