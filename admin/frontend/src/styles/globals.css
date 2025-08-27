@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cream-50 text-neutral-900 font-sans antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus {
+    @apply outline-none ring-2 ring-pickle-500 ring-offset-2;
+  }
+  
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply absolute -top-10 left-6 bg-pickle-600 text-white px-4 py-2 rounded-md z-50 transition-transform duration-200;
+  }
+  
+  .skip-link:focus {
+    @apply top-6 transform-none;
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Button base styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-medium rounded-full transition-all duration-200;
+  }
+  
+  .btn:focus {
+    @apply outline-none ring-2 ring-offset-2;
+  }
+  
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply bg-pickle-600 text-white shadow-soft;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-pickle-700 shadow-medium;
+  }
+  
+  .btn-primary:focus {
+    @apply ring-pickle-500;
+  }
+  
+  .btn-primary:active {
+    @apply scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-amber-500 text-white shadow-soft;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-amber-600 shadow-medium;
+  }
+  
+  .btn-secondary:focus {
+    @apply ring-amber-500;
+  }
+  
+  .btn-secondary:active {
+    @apply scale-95;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border-neutral-300 text-neutral-700;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-neutral-50;
+  }
+  
+  .btn-outline:focus {
+    @apply ring-neutral-500;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent text-neutral-600;
+  }
+  
+  .btn-ghost:hover {
+    @apply bg-neutral-100;
+  }
+  
+  .btn-ghost:focus {
+    @apply ring-neutral-500;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-soft border border-neutral-100 overflow-hidden transition-all duration-200;
+  }
+  
+  .card-hover:hover {
+    @apply shadow-medium -translate-y-1;
+  }
+  
+  /* Form styles */
+  .form-input {
+    @apply block w-full px-4 py-3 border border-neutral-300 rounded-lg shadow-sm placeholder-neutral-400 transition-colors duration-200;
+  }
+  
+  .form-input:focus {
+    @apply ring-2 ring-pickle-500 border-pickle-500;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-neutral-700 mb-2;
+  }
+  
+  .form-error {
+    @apply text-red-600 text-sm mt-1;
+  }
+
+  /* Input field styles */
+  .input-field {
+    @apply block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pickle-500 focus:border-transparent transition-colors duration-200;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-pickle-600 hover:bg-pickle-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors;
+  }
+  
+  /* Navigation styles */
+  .nav-link {
+    @apply text-neutral-600 transition-colors duration-200 font-medium;
+  }
+  
+  .nav-link:hover {
+    @apply text-neutral-900;
+  }
+  
+  .nav-link-active {
+    @apply text-pickle-600 font-semibold;
+  }
+  
+  /* Product card styles */
+  .product-card {
+    @apply card card-hover cursor-pointer;
+  }
+  
+  .product-image {
+    @apply w-full h-64 object-cover transition-transform duration-300;
+  }
+  
+  /* Toast styles */
+  .toast {
+    @apply fixed top-4 right-4 bg-white border border-neutral-200 rounded-lg shadow-strong p-4 z-50 max-w-sm animate-slide-left;
+  }
+  
+  /* Skeleton loader */
+  .skeleton {
+    @apply bg-neutral-200 animate-pulse rounded;
+  }
+  
+  /* Custom scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.neutral.300') transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: theme('colors.neutral.300');
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.neutral.400');
+  }
+
+  /* Admin Dashboard Specific Styles */
+  
+  /* Sidebar styles */
+  .admin-sidebar {
+    @apply fixed left-0 top-0 h-full w-64 bg-white shadow-medium z-40 transition-transform duration-300;
+  }
+  
+  .admin-sidebar-mobile {
+    @apply transform -translate-x-full;
+  }
+  
+  .admin-sidebar-open {
+    @apply transform translate-x-0;
+  }
+  
+  /* Topbar styles */
+  .admin-topbar {
+    @apply fixed top-0 left-0 right-0 h-16 bg-white shadow-soft z-30 flex items-center justify-between px-6;
+  }
+  
+  /* Main content area */
+  .admin-main {
+    @apply ml-0 pt-16 transition-all duration-300;
+  }
+  
+  .admin-main-sidebar {
+    @apply ml-64;
+  }
+  
+  /* Stat card styles */
+  .stat-card {
+    @apply bg-white rounded-lg shadow-soft p-6 border border-neutral-100;
+  }
+  
+  .stat-card-positive {
+    @apply text-green-600;
+  }
+  
+  .stat-card-negative {
+    @apply text-red-600;
+  }
+  
+  /* Table styles */
+  .admin-table {
+    @apply w-full bg-white rounded-lg shadow-soft overflow-hidden;
+  }
+  
+  .admin-table th {
+    @apply px-6 py-4 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider bg-neutral-50;
+  }
+  
+  .admin-table td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-neutral-900 border-t border-neutral-100;
+  }
+  
+  .admin-table tbody tr:hover {
+    @apply bg-neutral-50;
+  }
+  
+  /* Status badges */
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-completed {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-processing {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .status-shipped {
+    @apply bg-purple-100 text-purple-800;
+  }
+  
+  .status-delivered {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-cancelled {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .status-unread {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-read {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-active {
+    @apply text-green-600 font-semibold;
+  }
+  
+  .status-inactive {
+    @apply text-neutral-500;
+  }
+  
+  .status-unread {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .status-read {
+    @apply bg-neutral-100 text-neutral-800;
+  }
+  
+  /* Modal styles */
+  .admin-modal {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4;
+  }
+  
+  .admin-modal-content {
+    @apply bg-white rounded-lg shadow-strong max-w-md w-full max-h-[90vh] overflow-y-auto;
+  }
+  
+  /* Form styles for admin */
+  .admin-form {
+    @apply space-y-6;
+  }
+  
+  .admin-form-group {
+    @apply space-y-2;
+  }
+  
+  .admin-input {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-pickle-500 focus:border-pickle-500 transition-colors duration-200;
+  }
+  
+  .admin-textarea {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-pickle-500 focus:border-pickle-500 transition-colors duration-200 resize-y;
+  }
+  
+  .admin-select {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-pickle-500 focus:border-pickle-500 transition-colors duration-200;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    @apply bg-white rounded-lg shadow-soft p-6 border border-neutral-100;
+  }
+  
+  /* Loading spinner */
+  .loading-spinner {
+    @apply animate-spin rounded-full h-6 w-6 border-b-2 border-pickle-600;
+  }
+  
+  /* Development notice */
+  .dev-notice {
+    @apply bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded-lg mb-6 flex items-center;
+  }
+  
+  /* Toast notifications */
+  .toast-container {
+    @apply fixed top-4 right-4 z-50 space-y-2;
+  }
+  
+  .toast {
+    @apply bg-white rounded-lg shadow-strong border border-neutral-200 p-4 min-w-80 max-w-md;
+  }
+  
+  .toast-success {
+    @apply border-green-200 bg-green-50;
+  }
+  
+  .toast-error {
+    @apply border-red-200 bg-red-50;
+  }
+  
+  .toast-warning {
+    @apply border-yellow-200 bg-yellow-50;
+  }
+  
+  .toast-info {
+    @apply border-blue-200 bg-blue-50;
+  }
+  
+  /* Tab styles */
+  .admin-tabs {
+    @apply border-b border-neutral-200;
+  }
+  
+  .admin-tab {
+    @apply px-4 py-2 text-sm font-medium text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 border-b-2 border-transparent;
+  }
+  
+  .admin-tab-active {
+    @apply text-pickle-600 border-pickle-500;
+  }
+  
+  /* Additional Admin styles */
+  .admin-layout {
+    @apply min-h-screen bg-gray-50;
+  }
+  
+  .admin-sidebar {
+    @apply fixed left-0 top-0 h-full w-64 bg-white shadow-lg z-40;
+  }
+  
+  .admin-content {
+    @apply ml-64 p-6;
+  }
+  
+  .admin-header {
+    @apply bg-white shadow-sm border-b border-gray-200 px-6 py-4;
+  }
+  
+  .admin-table {
+    @apply w-full border-collapse;
+  }
+  
+  .admin-table th {
+    @apply text-left py-3 px-4 font-medium text-gray-900 border-b border-gray-200;
+  }
+  
+  .admin-table td {
+    @apply py-3 px-4 text-sm text-gray-900 border-b border-gray-100;
+  }
+  
+  .admin-table tr:hover {
+    @apply bg-gray-50;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  /* Text gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-pickle-600 to-amber-600 bg-clip-text text-transparent;
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+  
+  /* Aspect ratios */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+  
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Container queries support */
+  .container-query {
+    container-type: inline-size;
+  }
+  
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+  
+  /* Focus visible for better accessibility */
+  .focus-visible:focus {
+    @apply outline-none ring-2 ring-pickle-500 ring-offset-2;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  /* Hover lift effect */
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-medium;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-200;
+  }
+}
+
