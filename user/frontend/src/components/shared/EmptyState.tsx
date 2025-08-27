@@ -1,12 +1,19 @@
 import { FiPackage, FiShoppingCart, FiSearch, FiAlertCircle } from 'react-icons/fi';
 
-const EmptyState = ({ 
+type EmptyStateProps = {
+  title?: string;
+  message?: string;
+  icon?: 'package' | 'cart' | 'search' | 'alert';
+  action?: React.ReactNode;
+};
+
+const EmptyState: React.FC<EmptyStateProps> = ({ 
   title = 'No items found', 
   message = 'There are no items to display at the moment.',
   icon = 'package',
   action = null 
 }) => {
-  const iconMap = {
+  const iconMap: Record<EmptyStateProps['icon'], JSX.Element> = {
     package: <FiPackage className="w-12 h-12" />,
     cart: <FiShoppingCart className="w-12 h-12" />,
     search: <FiSearch className="w-12 h-12" />,

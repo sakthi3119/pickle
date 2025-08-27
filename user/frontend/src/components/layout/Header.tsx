@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Button from '../atomic/Button';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface HeaderProps {
@@ -18,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,8 +132,8 @@ const Header: React.FC<HeaderProps> = ({
 
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-neutral-100'
-            : 'bg-transparent'
+          ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-neutral-100'
+          : 'bg-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,8 +152,8 @@ const Header: React.FC<HeaderProps> = ({
                   key={item.label}
                   to={item.href}
                   className={`nav-link text-base font-medium tracking-wide transition-colors duration-200 ${location.pathname === item.href
-                      ? 'text-pickle-600 border-b-2 border-pickle-600'
-                      : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'text-pickle-600 border-b-2 border-pickle-600'
+                    : 'text-neutral-600 hover:text-neutral-900'
                     }`}
                 >
                   {item.label}
@@ -233,8 +233,8 @@ const Header: React.FC<HeaderProps> = ({
                   key={item.label}
                   to={item.href}
                   className={`block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 ${location.pathname === item.href
-                      ? 'text-pickle-600 bg-pickle-50'
-                      : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50'
+                    ? 'text-pickle-600 bg-pickle-50'
+                    : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50'
                     }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

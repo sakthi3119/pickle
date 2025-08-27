@@ -1,29 +1,29 @@
 import React from 'react';
 import { FiAlertTriangle, FiRefreshCw } from 'react-icons/fi';
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+type ErrorBoundaryState = {
+  hasError: boolean;
+  error?: Error;
+  errorInfo?: React.ErrorInfo;
+};
+
+class ErrorBoundary extends React.Component<React.PropsWithChildren<{}>, ErrorBoundaryState> {
+  constructor(props: React.PropsWithChildren<{}>) {
     super(props);
-    this.state = { hasError: false, error: null, errorInfo: null };
+    this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(_: Error): ErrorBoundaryState {
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
-    this.setState({
-      error: error,
-      errorInfo: errorInfo
-    });
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    this.setState({ error, errorInfo });
 
     // Log error to console in development
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env?.DEV) {
       console.error('Error caught by boundary:', error, errorInfo);
     }
-
-    // In production, you might want to send this to an error reporting service
-    // Example: Sentry.captureException(error, { extra: errorInfo });
   }
 
   handleReload = () => {
@@ -64,7 +64,7 @@ class ErrorBoundary extends React.Component {
               </button>
             </div>
 
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            {import.meta.env?.DEV && this.state.error && (
               <details className="mt-6 text-left">
                 <summary className="cursor-pointer text-sm font-medium text-gray-700 mb-2">
                   Error Details (Development)
@@ -76,7 +76,7 @@ class ErrorBoundary extends React.Component {
                   <div>
                     <strong>Stack:</strong>
                     <pre className="whitespace-pre-wrap mt-1">
-                      {this.state.errorInfo.componentStack}
+                      {this.state.errorInfo?.componentStack}
                     </pre>
                   </div>
                 </div>
@@ -87,7 +87,7 @@ class ErrorBoundary extends React.Component {
       );
     }
 
-    return this.props.children;
+    return this.props.children as React.ReactNode;
   }
 }
 
