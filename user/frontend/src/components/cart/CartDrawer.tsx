@@ -109,22 +109,22 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
             <div className="space-y-3 mb-6">
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-600">Subtotal</span>
-                <span className="text-neutral-900">${subtotal.toFixed(2)}</span>
+                <span className="text-neutral-900">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(subtotal)}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-600">Shipping</span>
                 <span className="text-neutral-900">
-                  {shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}
+                  {shipping === 0 ? 'Free' : new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(shipping)}
                 </span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-600">Tax</span>
-                <span className="text-neutral-900">${tax.toFixed(2)}</span>
+                <span className="text-neutral-900">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(tax)}</span>
               </div>
               <div className="border-t border-neutral-200 pt-3">
                 <div className="flex justify-between font-semibold">
                   <span className="text-neutral-900">Total</span>
-                  <span className="text-neutral-900">${total.toFixed(2)}</span>
+                  <span className="text-neutral-900">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(total)}</span>
                 </div>
               </div>
             </div>

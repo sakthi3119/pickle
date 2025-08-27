@@ -58,7 +58,7 @@ const CartItem: React.FC<CartItemProps> = ({
               </p>
             )}
             <p className="text-sm font-medium text-neutral-900 mt-2">
-              ${(product.price * quantity).toFixed(2)}
+              {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(product.price * quantity)}
             </p>
           </div>
 

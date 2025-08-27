@@ -17,7 +17,7 @@ const ProductDetail: React.FC = () => {
     id: 1,
     name: 'Classic Dill Pickles',
     price: 12.99,
-    image: 'https://images.unsplash.com/photo-1603049405392-74c0b5e8b8b8?w=400&h=400&fit=crop',
+    image: '/images/products/classicdillpickle.jpg',
     tag: 'Best Seller',
     description: 'Traditional dill pickles with garlic and herbs',
   };
@@ -25,8 +25,8 @@ const ProductDetail: React.FC = () => {
   // Additional product images
   const productImages = [
     product.image,
-    'https://images.unsplash.com/photo-1593967858208-67dfa0df6eb1?w=400&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1597715467880-95ef3e39a566?w=400&h=400&fit=crop',
+    '/images/products/garlicdill.jpg',
+    '/images/products/lemon-pickle-OyHya49s.jpg',
   ];
 
   const sizeOptions = [
@@ -126,7 +126,7 @@ const ProductDetail: React.FC = () => {
                 {product.name}
               </h1>
               <p className="text-2xl font-semibold text-neutral-900">
-                ${currentPrice.toFixed(2)}
+                {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(currentPrice)}
               </p>
             </div>
 
@@ -154,7 +154,7 @@ const ProductDetail: React.FC = () => {
                   >
                     <span className="block font-medium">{option.label}</span>
                     <span className="text-sm text-neutral-600">
-                      ${option.price.toFixed(2)}
+                      {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(option.price)}
                     </span>
                   </button>
                 ))}
@@ -211,7 +211,7 @@ const ProductDetail: React.FC = () => {
               onClick={handleAddToCart}
               className="w-full"
             >
-              Add to Cart - ${(currentPrice * quantity).toFixed(2)}
+              Add to Cart - {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(currentPrice * quantity)}
             </Button>
 
             {/* Product Details */}

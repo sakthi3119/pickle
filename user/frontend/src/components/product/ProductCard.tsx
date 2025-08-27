@@ -41,10 +41,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {/* Product Image with Hover Effect */}
         <div className="relative aspect-square">
           <img
-            src={product.image || 'https://picsum.photos/seed/pickles/400/400'}
+            src={product.image || '/images/products/classicdillpickle.jpg'}
             alt={product.name}
             className="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://picsum.photos/seed/picklefallback/400/400'; }}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg'; }}
           />
 
           {product.tag && (
@@ -77,7 +77,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             {product.name}
           </h3>
           <p className="text-neutral-600 text-base font-medium">
-            ${product.price.toFixed(2)}
+            {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(product.price)}
           </p>
 
           {product.description && (
