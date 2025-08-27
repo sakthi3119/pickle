@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    const userAppUrl = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_USER_APP_URL) || 'http://localhost:3000';
+    const userAppUrl = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_USER_APP_URL) || 'https://pickle-woad.vercel.app';
     // Hard redirect to user app home
     window.location.href = userAppUrl;
   };

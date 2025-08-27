@@ -23,7 +23,7 @@ const PrivateRoute = ({ children }) => {
   }
 
   if (!isAuthenticated || !isAdmin) {
-    const userAppUrl = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_USER_APP_URL) || 'http://localhost:3000';
+    const userAppUrl = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_USER_APP_URL) || 'https://pickle-woad.vercel.app';
     // Send unauthenticated attempts back to user app instead of admin login
     window.location.href = userAppUrl;
     return null;
