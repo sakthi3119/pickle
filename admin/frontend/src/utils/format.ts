@@ -1,11 +1,12 @@
-export const formatPrice = (price) => {
-  return new Intl.NumberFormat('en-US', {
+export const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'INR',
+    maximumFractionDigits: 2,
   }).format(price);
 };
 
-export const formatDate = (date) => {
+export const formatDate = (date: string | number | Date) => {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -13,7 +14,7 @@ export const formatDate = (date) => {
   });
 };
 
-export const formatDateTime = (date) => {
+export const formatDateTime = (date: string | number | Date) => {
   return new Date(date).toLocaleString('en-US', {
     year: 'numeric',
     month: 'short',
