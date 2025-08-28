@@ -97,11 +97,10 @@ const ProductDetail: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors duration-200 ${
-                    selectedImage === index
-                      ? 'border-pickle-500'
-                      : 'border-neutral-200 hover:border-neutral-300'
-                  }`}
+                  className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors duration-200 ${selectedImage === index
+                    ? 'border-pickle-500'
+                    : 'border-neutral-200 hover:border-neutral-300'
+                    }`}
                 >
                   <img
                     src={image}
@@ -146,11 +145,10 @@ const ProductDetail: React.FC = () => {
                   <button
                     key={option.value}
                     onClick={() => setSelectedSize(option.value)}
-                    className={`px-4 py-2 rounded-lg border-2 transition-colors duration-200 ${
-                      selectedSize === option.value
-                        ? 'border-pickle-500 bg-pickle-50 text-pickle-700'
-                        : 'border-neutral-200 hover:border-neutral-300'
-                    }`}
+                    className={`px-4 py-2 rounded-lg border-2 transition-colors duration-200 ${selectedSize === option.value
+                      ? 'border-pickle-500 bg-pickle-50 text-pickle-700'
+                      : 'border-neutral-200 hover:border-neutral-300'
+                      }`}
                   >
                     <span className="block font-medium">{option.label}</span>
                     <span className="text-sm text-neutral-600">
@@ -169,11 +167,10 @@ const ProductDetail: React.FC = () => {
                   <button
                     key={option.value}
                     onClick={() => setSelectedSpice(option.value)}
-                    className={`px-4 py-2 rounded-lg border-2 transition-colors duration-200 ${
-                      selectedSpice === option.value
-                        ? 'border-pickle-500 bg-pickle-50 text-pickle-700'
-                        : 'border-neutral-200 hover:border-neutral-300'
-                    }`}
+                    className={`px-4 py-2 rounded-lg border-2 transition-colors duration-200 ${selectedSpice === option.value
+                      ? 'border-pickle-500 bg-pickle-50 text-pickle-700'
+                      : 'border-neutral-200 hover:border-neutral-300'
+                      }`}
                   >
                     <span className="block font-medium">{option.label}</span>
                     <span className="block text-lg">{option.icon}</span>

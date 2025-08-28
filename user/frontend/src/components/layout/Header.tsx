@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({
   const Logo = () => (
     <div className="flex items-center">
       <svg
-        className={`transition-all duration-300 ${isScrolled ? 'h-10 w-10' : 'h-14 w-14'
+        className={`transition-all duration-300 ${isScrolled ? 'h-8 w-8' : 'h-10 w-10'
           }`}
         viewBox="0 0 24 24"
         fill="none"
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
         />
       </svg>
       <span
-        className={`ml-2 font-display font-bold transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'
+        className={`ml-2 font-display font-bold transition-all duration-300 ${isScrolled ? 'text-base' : 'text-lg'
           }`}
       >
         The Pickle Jar
@@ -131,13 +131,13 @@ const Header: React.FC<HeaderProps> = ({
       </a>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-x-clip ${isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-neutral-100'
           : 'bg-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-14 lg:h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center">
@@ -146,12 +146,12 @@ const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`nav-link text-base font-medium tracking-wide transition-colors duration-200 ${location.pathname === item.href
+                  className={`nav-link text-sm font-medium tracking-wide transition-colors duration-200 ${location.pathname === item.href
                     ? 'text-pickle-600 border-b-2 border-pickle-600'
                     : 'text-neutral-600 hover:text-neutral-900'
                     }`}
@@ -162,7 +162,7 @@ const Header: React.FC<HeaderProps> = ({
             </nav>
 
             {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-3">
               {user ? (
                 <>
                   <button
@@ -184,7 +184,7 @@ const Header: React.FC<HeaderProps> = ({
                   </Link>
                   <Link
                     to="/signup"
-                    className="bg-pickle-600 text-white px-4 py-2 rounded-lg hover:bg-pickle-700 transition-colors font-medium"
+                    className="bg-pickle-600 text-white px-3 py-1.5 rounded-lg hover:bg-pickle-700 transition-colors font-medium text-sm"
                   >
                     Sign up
                   </Link>
@@ -242,12 +242,23 @@ const Header: React.FC<HeaderProps> = ({
                 </Link>
               ))}
               <div className="pt-4 pb-3 border-t border-neutral-200">
-                <div className="flex items-center px-3 py-2">
-                  <ProfileIcon />
-                  <span className="ml-3 text-base font-medium text-neutral-600">
-                    Account
-                  </span>
-                </div>
+                {user ? (
+                  <div className="flex items-center px-3 py-2">
+                    <ProfileIcon />
+                    <span className="ml-3 text-base font-medium text-neutral-600">
+                      Account
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between px-3 py-2">
+                    <Link to="/login" className="text-neutral-600 font-medium" onClick={() => setIsMobileMenuOpen(false)}>
+                      Log in
+                    </Link>
+                    <Link to="/signup" className="bg-pickle-600 text-white px-3 py-1.5 rounded-lg text-sm" onClick={() => setIsMobileMenuOpen(false)}>
+                      Sign up
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -255,7 +266,7 @@ const Header: React.FC<HeaderProps> = ({
       </header>
 
       {/* Spacer to prevent content from being hidden under fixed header */}
-      <div className="h-16 lg:h-20" />
+      <div className="h-14 lg:h-16" />
     </>
   );
 };

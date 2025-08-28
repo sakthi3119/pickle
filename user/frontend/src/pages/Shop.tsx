@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProductCard from '../components/product/ProductCard';
 import Button from '../components/ui/Button';
+import Modal from '../components/atomic/Modal';
 import { Product } from '../components/product/ProductCard';
 
 const Shop: React.FC = () => {
@@ -8,6 +9,7 @@ const Shop: React.FC = () => {
     pickleType: [] as string[],
     spiceLevel: [] as string[],
   });
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Product data
   const products: Product[] = [
@@ -85,14 +87,19 @@ const Shop: React.FC = () => {
           <h1 className="font-display font-bold text-4xl lg:text-5xl text-neutral-900 mb-4">
             Shop Our Pickles
           </h1>
-          <p className="text-lg text-neutral-600">
-            Discover our handcrafted pickles made with love and tradition
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-lg text-neutral-600">
+              Discover our handcrafted pickles made with love and tradition
+            </p>
+            <Button className="lg:hidden" variant="outline" size="sm" onClick={() => setIsFilterOpen(true)}>
+              Filter
+            </Button>
+          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Side Filter Panel */}
-          <div className="lg:w-80 flex-shrink-0">
+          <div className="hidden lg:block lg:w-80 flex-shrink-0">
             <div className="bg-white rounded-lg shadow-soft p-6 sticky top-24">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-lg font-semibold text-neutral-900">Filters</h2>
@@ -183,6 +190,53 @@ const Shop: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* Mobile Filter Panel */}
+      <Modal isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)} title="Filters" size="lg">
+        <div className="grid grid-cols-1 gap-8">
+          <div>
+            <h3 className="font-medium text-neutral-900 mb-4">Pickle Type</h3>
+            <div className="space-y-3">
+              {filterOptions.pickleType.map((type) => (
+                <label key={type} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={selectedFilters.pickleType.includes(type)}
+                    onChange={() => handleFilterChange('pickleType', type)}
+                    className="w-4 h-4 text-pickle-600 border-neutral-300 rounded focus:ring-pickle-500"
+                  />
+                  <span className="ml-3 text-sm text-neutral-700">{type}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-medium text-neutral-900 mb-4">Spice Level</h3>
+            <div className="space-y-3">
+              {filterOptions.spiceLevel.map((level) => (
+                <label key={level} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={selectedFilters.spiceLevel.includes(level)}
+                    onChange={() => handleFilterChange('spiceLevel', level)}
+                    className="w-4 h-4 text-pickle-600 border-neutral-300 rounded focus:ring-pickle-500"
+                  />
+                  <span className="ml-3 text-sm text-neutral-700">{level}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between pt-2">
+            <Button variant="ghost" size="sm" onClick={resetFilters}>
+              Reset
+            </Button>
+            <Button size="sm" onClick={() => setIsFilterOpen(false)}>
+              Apply
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

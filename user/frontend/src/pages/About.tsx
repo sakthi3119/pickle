@@ -57,33 +57,63 @@ const About: React.FC = () => {
       {/* Timeline */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <h2 className="text-center text-2xl font-semibold text-neutral-900 mb-8">Our Journey</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <TimelineDot year="2008" />
-            <div className="bg-white rounded-xl shadow-soft p-6">
-              <h3 className="font-semibold text-neutral-900 mb-1">The Beginning</h3>
-              <p className="text-neutral-600">Started in a small kitchen with a dream to bring authentic pickling traditions to modern tables.</p>
+        <div className="relative">
+          {/* center line */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-neutral-200" />
+
+          {/* 2008 - Left */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start mb-6">
+            <div className="lg:pr-10">
+              <div className="flex items-center justify-start mb-3">
+                <TimelineDot year="2008" />
+              </div>
+              <div className="bg-white rounded-xl shadow-soft p-6">
+                <h3 className="font-semibold text-neutral-900 mb-1">The Beginning</h3>
+                <p className="text-neutral-600">Started in a small kitchen with a dream to bring authentic pickling traditions to modern tables.</p>
+              </div>
+            </div>
+            <div />
+          </div>
+
+          {/* 2012 - Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start mb-6">
+            <div className="hidden lg:block" />
+            <div className="lg:pl-10">
+              <div className="flex items-center justify-start lg:justify-end mb-3">
+                <TimelineDot year="2012" />
+              </div>
+              <div className="bg-white rounded-xl shadow-soft p-6">
+                <h3 className="font-semibold text-neutral-900 mb-1">First Farmers Market</h3>
+                <p className="text-neutral-600">Our pickles gained local recognition for their crave‑worthy crunch and bold flavors.</p>
+              </div>
             </div>
           </div>
-          <div className="space-y-4">
-            <TimelineDot year="2012" />
-            <div className="bg-white rounded-xl shadow-soft p-6">
-              <h3 className="font-semibold text-neutral-900 mb-1">First Farmers Market</h3>
-              <p className="text-neutral-600">Our pickles gained local recognition for their crave‑worthy crunch and bold flavors.</p>
+
+          {/* 2016 - Left */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start mb-6">
+            <div className="lg:pr-10">
+              <div className="flex items-center justify-start mb-3">
+                <TimelineDot year="2016" />
+              </div>
+              <div className="bg-white rounded-xl shadow-soft p-6">
+                <h3 className="font-semibold text-neutral-900 mb-1">Commercial Kitchen</h3>
+                <p className="text-neutral-600">Expanded to a commercial kitchen to meet growing demand while maintaining our artisanal approach.</p>
+              </div>
             </div>
+            <div />
           </div>
-          <div className="space-y-4">
-            <TimelineDot year="2016" />
-            <div className="bg-white rounded-xl shadow-soft p-6">
-              <h3 className="font-semibold text-neutral-900 mb-1">Commercial Kitchen</h3>
-              <p className="text-neutral-600">Expanded to a commercial kitchen to meet growing demand while maintaining our artisanal approach.</p>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <TimelineDot year="2020" />
-            <div className="bg-white rounded-xl shadow-soft p-6">
-              <h3 className="font-semibold text-neutral-900 mb-1">Online Store Launch</h3>
-              <p className="text-neutral-600">Launched nationwide shipping so pickle lovers across the country could enjoy our jars.</p>
+
+          {/* 2020 - Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+            <div className="hidden lg:block" />
+            <div className="lg:pl-10">
+              <div className="flex items-center justify-start lg:justify-end mb-3">
+                <TimelineDot year="2020" />
+              </div>
+              <div className="bg-white rounded-xl shadow-soft p-6">
+                <h3 className="font-semibold text-neutral-900 mb-1">Online Store Launch</h3>
+                <p className="text-neutral-600">Launched nationwide shipping so pickle lovers across the country could enjoy our jars.</p>
+              </div>
             </div>
           </div>
         </div>
