@@ -97,60 +97,7 @@ const Shop: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Side Filter Panel */}
-          <div className="hidden lg:block lg:w-80 flex-shrink-0">
-            <div className="bg-white rounded-lg shadow-soft p-6 sticky top-24">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-semibold text-neutral-900">Filters</h2>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={resetFilters}
-                  className="text-sm"
-                >
-                  Reset
-                </Button>
-              </div>
-
-              {/* Pickle Type Filter */}
-              <div className="mb-8">
-                <h3 className="font-medium text-neutral-900 mb-4">Pickle Type</h3>
-                <div className="space-y-3">
-                  {filterOptions.pickleType.map((type) => (
-                    <label key={type} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={selectedFilters.pickleType.includes(type)}
-                        onChange={() => handleFilterChange('pickleType', type)}
-                        className="w-4 h-4 text-pickle-600 border-neutral-300 rounded focus:ring-pickle-500"
-                      />
-                      <span className="ml-3 text-sm text-neutral-700">{type}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Spice Level Filter */}
-              <div className="mb-8">
-                <h3 className="font-medium text-neutral-900 mb-4">Spice Level</h3>
-                <div className="space-y-3">
-                  {filterOptions.spiceLevel.map((level) => (
-                    <label key={level} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={selectedFilters.spiceLevel.includes(level)}
-                        onChange={() => handleFilterChange('spiceLevel', level)}
-                        className="w-4 h-4 text-pickle-600 border-neutral-300 rounded focus:ring-pickle-500"
-                      />
-                      <span className="ml-3 text-sm text-neutral-700">{level}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div className="flex flex-col gap-8">
           {/* Product Grid */}
           <div className="flex-1">
             {/* Results Header */}
@@ -158,15 +105,20 @@ const Shop: React.FC = () => {
               <p className="text-neutral-600">
                 Showing {products.length} products
               </p>
-              <div className="flex items-center space-x-4">
-                <label className="text-sm text-neutral-700">Sort by:</label>
-                <select className="form-input text-sm w-auto">
-                  <option>Featured</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
-                  <option>Name: A to Z</option>
-                  <option>Name: Z to A</option>
-                </select>
+              <div className="flex items-center gap-3">
+                <Button variant="outline" size="sm" onClick={() => setIsFilterOpen(true)}>
+                  Filter
+                </Button>
+                <div className="flex items-center space-x-2">
+                  <label className="text-sm text-neutral-700">Sort by:</label>
+                  <select className="form-input text-sm w-auto">
+                    <option>Featured</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Name: A to Z</option>
+                    <option>Name: Z to A</option>
+                  </select>
+                </div>
               </div>
             </div>
 
