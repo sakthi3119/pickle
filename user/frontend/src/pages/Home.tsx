@@ -36,7 +36,7 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-cream-50">
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] bg-pickle-900">
+      <section className="relative h-[60vh] min-h-[420px] sm:h-[70vh] md:h-[80vh] md:min-h-[600px] bg-pickle-900">
         <div className="absolute inset-0">
           <img
             src="/images/products/garlicdill.jpg"
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-pickle-900/50 to-pickle-900/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex flex-col justify-center h-full pb-16">
+          <div className="flex flex-col justify-center h-full pb-8 md:pb-16">
             <h1 className="text-4xl lg:text-6xl font-display font-bold text-white mb-6">
               Handcrafted Pickles <br />
               Made with Love
