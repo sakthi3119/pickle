@@ -34,9 +34,9 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-cream-50">
+    <div className="min-h-screen bg-cream-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[420px] sm:h-[70vh] md:h-[80vh] md:min-h-[600px] bg-pickle-900">
+      <section className="relative h-[60vh] min-h-[420px] sm:h-[70vh] md:h-[80vh] md:min-h-[600px] bg-pickle-900 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/images/products/garlicdill.jpg"
