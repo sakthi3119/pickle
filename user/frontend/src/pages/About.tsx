@@ -57,70 +57,36 @@ const About: React.FC = () => {
       {/* Timeline */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <h2 className="text-center text-2xl font-semibold text-neutral-900 mb-8">Our Journey</h2>
-        <div className="space-y-10">
-          {/* Step 1 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            {/* Text left */}
-            <div>
-              <div className="mb-3"><TimelineDot year="2008" /></div>
-              <div className="bg-white rounded-xl shadow-soft p-6">
-                <h3 className="font-semibold text-neutral-900 mb-1">The Beginning</h3>
-                <p className="text-neutral-600">Started in a small kitchen with a dream to bring authentic pickling traditions to modern tables.</p>
+        <div className="relative">
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-neutral-200" />
+          {[
+            { year: '2008', title: 'The Beginning', desc: 'Started in a small kitchen with a dream to bring authentic pickling traditions to modern tables.', img: '/images/story/beginning.jpg', alt: 'The Beginning' },
+            { year: '2012', title: 'First Farmers Market', desc: 'Our pickles gained local recognition for their crave‑worthy crunch and bold flavors.', img: '/images/story/farmers-market.jpg', alt: 'First Farmers Market' },
+            { year: '2016', title: 'Commercial Kitchen', desc: 'Expanded to a commercial kitchen to meet growing demand while maintaining our artisanal approach.', img: '/images/story/commercial-kitchen.jpg', alt: 'Commercial Kitchen' },
+            { year: '2020', title: 'Online Store Launch', desc: 'Launched nationwide shipping so pickle lovers across the country could enjoy our jars.', img: '/images/story/online-launch.jpg', alt: 'Online Store Launch' },
+          ].map((step, index) => (
+            <div key={step.year} className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center mb-10">
+              {/* Image column */}
+              <div className={`${index % 2 === 0 ? 'lg:order-1 lg:pr-10' : 'lg:order-2 lg:pl-10'} order-1`}>
+                <img
+                  src={step.img}
+                  alt={step.alt}
+                  className="w-full h-64 md:h-80 object-cover rounded-xl shadow-soft"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg'; }}
+                />
+              </div>
+              {/* Text column */}
+              <div className={`${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'} order-2`}>
+                <div className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'lg:justify-end'} mb-3`}>
+                  <TimelineDot year={step.year} />
+                </div>
+                <div className="bg-white rounded-xl shadow-soft p-6">
+                  <h3 className="font-semibold text-neutral-900 mb-1">{step.title}</h3>
+                  <p className="text-neutral-600">{step.desc}</p>
+                </div>
               </div>
             </div>
-            {/* Image right */}
-            <div className="order-first md:order-none">
-              <img src="/images/story/beginning.jpg" alt="The Beginning" className="w-full h-64 md:h-80 object-cover rounded-xl shadow-soft" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg'; }} />
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            {/* Text left */}
-            <div>
-              <div className="mb-3"><TimelineDot year="2012" /></div>
-              <div className="bg-white rounded-xl shadow-soft p-6">
-                <h3 className="font-semibold text-neutral-900 mb-1">First Farmers Market</h3>
-                <p className="text-neutral-600">Our pickles gained local recognition for their crave‑worthy crunch and bold flavors.</p>
-              </div>
-            </div>
-            {/* Image right */}
-            <div className="order-first md:order-none">
-              <img src="/images/story/farmers-market.jpg" alt="First Farmers Market" className="w-full h-64 md:h-80 object-cover rounded-xl shadow-soft" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg'; }} />
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            {/* Text left */}
-            <div>
-              <div className="mb-3"><TimelineDot year="2016" /></div>
-              <div className="bg-white rounded-xl shadow-soft p-6">
-                <h3 className="font-semibold text-neutral-900 mb-1">Commercial Kitchen</h3>
-                <p className="text-neutral-600">Expanded to a commercial kitchen to meet growing demand while maintaining our artisanal approach.</p>
-              </div>
-            </div>
-            {/* Image right */}
-            <div className="order-first md:order-none">
-              <img src="/images/story/commercial-kitchen.jpg" alt="Commercial Kitchen" className="w-full h-64 md:h-80 object-cover rounded-xl shadow-soft" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg'; }} />
-            </div>
-          </div>
-
-          {/* Step 4 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            {/* Text left */}
-            <div>
-              <div className="mb-3"><TimelineDot year="2020" /></div>
-              <div className="bg-white rounded-xl shadow-soft p-6">
-                <h3 className="font-semibold text-neutral-900 mb-1">Online Store Launch</h3>
-                <p className="text-neutral-600">Launched nationwide shipping so pickle lovers across the country could enjoy our jars.</p>
-              </div>
-            </div>
-            {/* Image right */}
-            <div className="order-first md:order-none">
-              <img src="/images/story/online-launch.jpg" alt="Online Store Launch" className="w-full h-64 md:h-80 object-cover rounded-xl shadow-soft" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/products/classicdillpickle.jpg'; }} />
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
